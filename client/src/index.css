@@ -1,0 +1,462 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+nav {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src:
+    url('./assets/Fonts/Poppins/Poppins-Light.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('./assets/Fonts/Merriweather/Merriweather-Light.ttf'),
+
+  ;
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+footer {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+
+}
+
+main {
+  font-family: "Poppins", sans-serif;
+}
+
+.chatBotContainer {
+  position: relative;
+  z-index: 100000 !important;
+}
+
+.chatbotMain {
+  font-family: "Merriweather", serif;
+}
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  .bg-custom-gradient {
+    background: linear-gradient(174deg, #E90000 5%, rgba(11, 21, 74, 0.60) 52.88%, rgba(244, 0, 161, 0.34) 83.35%, rgba(217, 217, 217, 0.00) 124.4%);
+  }
+
+  .blur-custom {
+    filter: blur(80px);
+  }
+}
+
+@layer utilities {
+  .paused {
+    animation-play-state: paused;
+  }
+}
+
+/* animation */
+.heading {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s ease, transform 0.5s ease, font-size 0.5s ease;
+}
+
+.heading.side {
+  opacity: 0;
+  transform: scale(0.1);
+}
+
+.heading.center {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.heading.hidden {
+  opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
+}
+
+
+.rotate-y-360 {
+  transform: rotateY(360deg);
+  transition: 1s ease-in-out;
+}
+
+
+.typewriter {
+  position: relative;
+  -webkit-text-stroke: 0.5px #F14F4E;
+}
+
+.typewriter::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: #F14F4E;
+  -webkit-text-stroke: 0px #F14F4E;
+  border-right: 3px solid #F14F4E;
+  overflow: hidden;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+
+  70%,
+  90% {
+    width: 100%;
+  }
+}
+
+
+/*  */
+.animated-text {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.animated-text span {
+  position: relative;
+  background-color: #00175A;
+}
+
+.animated-text span::before {
+  content: "Professionals With PhD";
+  color: #F14F4E;
+  animation: words 20s infinite;
+}
+
+.animated-text span::after {
+  content: "";
+  position: absolute;
+
+  background-color: #00175A;
+  width: calc(100% + 8px);
+  height: 100%;
+
+
+  border-left: 2px solid #F14F4E;
+  right: -8px;
+  animation: cursor 1s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+  to {
+    border-left: 2px solid;
+  }
+}
+
+@keyframes words {
+
+  0%,
+  20% {
+    content: "Professionals With PhD";
+  }
+
+  21%,
+  40% {
+    content: "Professional Scholars";
+  }
+
+  41%,
+  60% {
+    content: "Professionals With PhD";
+  }
+
+  61%,
+  80% {
+    content: "Professional Scholars";
+  }
+
+  81%,
+  100% {
+    content: "Professionals With PhD";
+  }
+}
+
+@keyframes typing {
+
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  75%,
+  90%,
+  95% {
+    width: 0;
+  }
+
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: calc(100% + 8px);
+  }
+}
+
+/* wave */
+
+.DocumentWaveSection {
+  position: absolute;
+  width: 100%;
+  background: #ff3c33;
+  min-height: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.Documentwave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: url(./assets/images/paint.webp);
+  background-size: 1000px 100px;
+}
+
+.Documentwave#Documentwave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWave 4s linear infinite;
+}
+
+.Documentwave#Documentwave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave_02 4s linear infinite;
+}
+
+.Documentwave#Documentwave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 0;
+  animation: animateWave 3s linear infinite;
+}
+
+.Documentwave#Documentwave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave_02 3s linear infinite;
+}
+
+@keyframes animateWave {
+  0% {
+    background-position-x: 1000px;
+  }
+
+  100% {
+    background-position-x: 0px;
+  }
+}
+
+@keyframes animateWave_02 {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+
+
+.WaveSection {
+  position: relative;
+  width: 100%;
+  background: #ff3c33;
+  min-height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: url(./assets/images/paint.webp);
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWave 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave_02 4s linear infinite;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 0;
+  animation: animateWave 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave_02 3s linear infinite;
+}
+
+@keyframes animateWave {
+  0% {
+    background-position-x: 1000px;
+  }
+
+  100% {
+    background-position-x: 0px;
+  }
+}
+
+@keyframes animateWave_02 {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+
+/* flag */
+
+@keyframes flagWave {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateX(-2px) rotate(-10deg);
+  }
+
+  50% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  75% {
+    transform: translateX(2px) rotate(10deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.flag {
+  animation: flagWave 1.5s ease-in-out infinite;
+  transform-origin: 50% 0%;
+}
+
+/* animatedBorder Animated Border CSS */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+
+.animatedBorder::after,
+.animatedBorder::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle), #ff3c33, #00175A);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius:10px;
+  animation: 3s spin linear infinite;
+}
+
+.animatedBorder::before {
+  filter: blur(0.4rem);
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+.languagesInfo::after,
+.languagesInfo::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 98.5%;
+  background-image: conic-gradient(from var(--angle), #ff3c33, #00175A);
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 8px;
+  animation: 3s spin linear infinite;
+}
+
+.languagesInfo::before {
+  filter: blur(1rem);
+  opacity: 9;
+}

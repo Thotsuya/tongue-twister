@@ -1,0 +1,3 @@
+user-agent: *
+Disallow:
+Sitemap: https://tongue-twist-website.onrender.com/sitemap.xml
